@@ -1,0 +1,123 @@
+body {
+    background-color: rgb(125, 212, 224);
+    overflow: hidden;
+}
+.background {
+    width: 150px;
+    height: 230px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    border-radius: 10px;
+    padding: 10px;
+    border: 5px solid white;
+    box-shadow: 2px 2px 8px black;
+}
+
+.light {
+    position: relative;
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    margin-left: 44px;
+    margin-top: 10px;
+}
+.gray{
+    position: absolute;
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    margin-left: 44px;
+    margin-top: 10px;
+    background-color: gray;
+}
+
+.red {
+    background-color: red;
+    margin-top: 10px;
+    visibility: visible;
+}
+.yellow {
+    background-color: yellow;
+    visibility: hidden;
+}
+.green {
+    background-color: green;
+    visibility: hidden;
+}
+.stick {
+    height: 320px;
+    width: 20px;
+    background-color: black;
+    margin-top: 20px;
+    position: absolute;
+    margin-left: 65px;
+box-shadow: 2px 2px 8px black;
+}
+
+.sun {
+    background-color: rgb(255, 255, 53);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; 
+    position: absolute;
+    margin-top: -100px;
+    margin-left: 50px;
+    box-shadow: 1px 1px 10px yellow;
+
+}
+.grass{
+    width: 100%;
+    position: absolute;
+    height: 10000px;
+    background-color: green;
+    margin-top: 320.5px;
+    margin-left: -8px;
+}
+
+.center {
+    position: absolute;
+    top:15%;
+    left:70%;
+}
+  
+  #cloud {
+    background: rgba(255, 255, 255);
+    width: 300px; 
+    height: 100px;
+    border-radius: 150px;	
+    box-shadow: 10px 10px rgba(0,0,0,0.2);
+    animation: move 3s infinite;
+  }
+  
+  #cloud:after {
+    content: '';
+    background: rgba(255, 255, 255);
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    top: -50px;
+    left: 50px;
+  }
+  
+  #cloud:before {
+    content: '';
+    background: rgba(255, 255, 255);
+    position: absolute;
+    width: 170px;
+    height: 150px;
+    border-radius: 50%;
+    top: -90px;
+    right: 40px;
+  }
+  
+  @keyframes move {
+    0% {
+      transform: translatex(0);
+    }
+    50% {
+      transform: translatex(-40px);
+    }
+  }

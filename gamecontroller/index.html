@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamecontroller</title>
+    <style>
+        body {
+            background-color: indianred;
+            overflow: hidden;
+        }
+
+        .buttons img {
+            width: 75px;
+            height: 75px;
+        }
+
+        .button {
+            background-color: white;
+            width: 75px;
+            height: 75px;
+            border-radius: 5px;
+        }
+
+        .buttons {
+            width: 225px;
+            height: 225px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-gap: 5px;
+            margin-top: 600px;
+            margin-left: 50px;
+        }
+
+        .hide {
+            visibility: hidden;
+        }
+
+        .plane img {
+            width: 250px;
+            height: 250px;
+            position: absolute;
+        }
+
+        #planeUp {
+            visibility: visible;
+        }
+
+        #planeDown {
+            visibility: hidden;
+        }
+
+        #planeLeft {
+            visibility: hidden;
+        }
+
+        #planeRight {
+            visibility: hidden;
+        }
+
+        #plane {
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #up, #left, #down, #right {
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body onkeydown="handleKey(event);">
+    <div class="plane" id="plane">
+        <div class="plane-img" id="planeUp"><img src="images/plane_up.png" alt="up"></div>
+        <div class="plane-img" id="planeDown"><img src="images/plane_down.png" alt="down"></div>
+        <div class="plane-img" id="planeRight"><img src="images/plane_right.png" alt="right"></div>
+        <div class="plane-img" id="planeLeft"><img src="images/plane_left.png" alt="left"></div>
+    </div>
+    <div class="buttons">
+        <div class="button hide"></div>
+        <div class="button" id="up" onclick="goUp()"><img src="images/arrow_up.png" alt=""></div>
+        <div class="button hide"></div>
+        <div class="button" id="left" onclick="goLeft()"><img src="images/arrow_left.png" alt=""></div>
+        <div class="button hide"></div>
+        <div class="button" id="right" onclick="goRight()"><img src="images/arrow_right.png" alt=""></div>
+        <div class="button hide"></div>
+        <div class="button" id="down" onclick="goDown()"><img src="images/arrow_down.png" alt=""></div>
+        <div class="button hide"></div>
+    </div>
+    <script>
+        var planeImgUp = document.getElementById("planeUp");
+        var planeImgDown = document.getElementById("planeDown");
+        var planeImgRight = document.getElementById("planeRight");
+        var planeImgLeft = document.getElementById("planeLeft");
+
+        var plane = document.getElementById("plane")
+
+
+        function handleKey(event) {
+            switch(event.keyCode) {
+                case 87: case 38: {
+                    goUp();
+                    break;
+                }
+                case 65: case 37: {
+                    goLeft();
+
+                    break;
+                }
+                case 68: case 39: {
+                    goRight();
+                    break;
+
+                }
+                case 83:  case 40: {
+                    goDown();
+                    break;
+                }
+            }
+        }
+
+        function goUp() {
+            planeImgUp.style.visibility = "visible";
+            planeImgDown.style.visibility = "hidden";
+            planeImgLeft.style.visibility = "hidden";
+            planeImgRight.style.visibility = "hidden";
+            plane.style.top = (plane.offsetTop - 30) + "px";
+        }
+        function goLeft() {
+            planeImgUp.style.visibility = "hidden";
+            planeImgDown.style.visibility = "hidden";
+            planeImgLeft.style.visibility = "visible";
+            planeImgRight.style.visibility = "hidden";
+            plane.style.left = (plane.offsetLeft - 30) + "px";
+
+        }
+        function goRight() {
+            planeImgUp.style.visibility = "hidden";
+            planeImgDown.style.visibility = "hidden";
+            planeImgLeft.style.visibility = "hidden";
+            planeImgRight.style.visibility = "visible";
+            plane.style.left = (plane.offsetLeft + 30) + "px";
+
+        }
+        function goDown() {
+            planeImgUp.style.visibility = "hidden";
+            planeImgDown.style.visibility = "visible";
+            planeImgLeft.style.visibility = "hidden";
+            planeImgRight.style.visibility = "hidden";
+
+            plane.style.top = (plane.offsetTop + 30) + "px";
+        }
+    </script>
+</body>
+
+</html>

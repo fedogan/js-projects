@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Piano</title>
+</head>
+
+<body onkeydown="playKey(event)">
+    <div class="piano">
+        <div class="black-key">
+
+            <div class="bk" id="w"></div>
+            <div class="bk" id="e"></div>
+            <div class="bk hidden"></div>
+            <div class="bk" id="t"></div>
+            <div class="bk" id="y"></div>
+            <div class="bk" id="u"></div>
+            <div class="bk hidden"></div>
+            <div class="bk" id="w1"></div>
+            <div class="bk" id="e1"></div>
+            <div class="bk hidden"></div>
+            <div class="bk" id="t1"></div>
+            <div class="bk" id="y1"></div>
+            <div class="bk" id="u1"></div>
+            <div class="bk hidden"></div>
+            <div class="bk" id="w2"></div>
+            <div class="bk" id="e2"></div>
+            <div class="bk hidden"></div>
+            <div class="bk" id="t2"></div>
+            <div class="bk" id="y2"></div>
+            <div class="bk" id="u2"></div>
+            <div class="bk hidden"></div>
+
+        </div>
+
+        <div class="key" id="C">
+            <p>C</p>
+        </div>
+        <div class="key" id="D">
+            <p>D</p>
+        </div>
+        <div class="key" id="E">
+            <p>E</p>
+        </div>
+        <div class="key" id="F">
+            <p>F</p>
+        </div>
+        <div class="key" id="G">
+            <p>G</p>
+        </div>
+        <div class="key" id="A">
+            <p>A</p>
+        </div>
+        <div class="key" id="B">
+            <p>B</p>
+        </div>
+        <div class="key" id="C1">
+            <p>C</p>
+        </div>
+        <div class="key" id="D1">
+            <p>D</p>
+        </div>
+        <div class="key" id="E1">
+            <p>E</p>
+        </div>
+        <div class="key" id="F1">
+            <p>F</p>
+        </div>
+        <div class="key" id="G1">
+            <p>G</p>
+        </div>
+        <div class="key" id="A1">
+            <p>A</p>
+        </div>
+        <div class="key" id="B1">
+            <p>B</p>
+        </div>
+        <div class="key" id="C2">
+            <p>C</p>
+        </div>
+        <div class="key" id="D2">
+            <p>D</p>
+        </div>
+        <div class="key" id="E2">
+            <p>E</p>
+        </div>
+        <div class="key" id="F2">
+            <p>F</p>
+        </div>
+        <div class="key" id="G2">
+            <p>G</p>
+        </div>
+        <div class="key" id="A2">
+            <p>A</p>
+        </div>
+        <div class="key" id="B2">
+            <p>B</p>
+        </div>
+
+    </div>
+
+
+
+
+    <script>
+        var C = document.getElementById("C"); // 65 A
+        var D = document.getElementById("D"); // 83 S
+        var E = document.getElementById("E"); // 68 D 
+        var F = document.getElementById("F"); // 70 F
+        var G = document.getElementById("G"); // 71 G 
+        var A = document.getElementById("A"); // 72 H
+        var B = document.getElementById("B"); // 74 J
+
+        var C1 = document.getElementById("C1"); // 65 A
+        var D1 = document.getElementById("D1"); // 83 S
+        var E1 = document.getElementById("E1"); // 68 D 
+        var F1 = document.getElementById("F1"); // 70 F
+        var G1 = document.getElementById("G1"); // 71 G 
+        var A1 = document.getElementById("A1"); // 72 H
+        var B1 = document.getElementById("B1"); // 74 J
+
+        var C2 = document.getElementById("C2"); // 65 A
+        var D2 = document.getElementById("D2"); // 83 S
+        var E2 = document.getElementById("E2"); // 68 D 
+        var F2 = document.getElementById("F2"); // 70 F
+        var G2 = document.getElementById("G2"); // 71 G 
+        var A2 = document.getElementById("A2"); // 72 H
+        var B2 = document.getElementById("B2"); // 74 J
+
+
+
+
+        var blackW = document.getElementById("w"); // 87
+        var blackE = document.getElementById("e"); // 69
+        var blackT = document.getElementById("t"); // 84
+        var blackY = document.getElementById("y"); // 89
+        var blackU = document.getElementById("u"); // 85
+
+        var blackW1 = document.getElementById("w1"); // 87
+        var blackE1 = document.getElementById("e1"); // 69
+        var blackT1 = document.getElementById("t1"); // 84
+        var blackY1 = document.getElementById("y1"); // 89
+        var blackU1 = document.getElementById("u1"); // 85
+
+        var blackW2 = document.getElementById("w2"); // 87
+        var blackE2 = document.getElementById("e2"); // 69
+        var blackT2 = document.getElementById("t2"); // 84
+        var blackY2 = document.getElementById("y2"); // 89
+        var blackU2 = document.getElementById("u2"); // 85
+
+        var audioC2 = new Audio('sounds/piano-ff-050.wav');
+        var audioBlackW2 = new Audio('sounds/piano-ff-051.wav');
+        var audioD2 = new Audio('sounds/piano-ff-052.wav');
+        var audioBlackE2 = new Audio('sounds/piano-ff-053.wav');
+        var audioE2 = new Audio('sounds/piano-ff-054.wav');
+        var audioF2 = new Audio('sounds/piano-ff-055.wav');
+        var audioBlackT2 = new Audio('sounds/piano-ff-056.wav');
+        var audioG2 = new Audio('sounds/piano-ff-057.wav');
+        var audioBlackY2 = new Audio('sounds/piano-ff-058.wav');
+        var audioA2 = new Audio('sounds/piano-ff-059.wav');
+        var audioBlackU2 = new Audio('sounds/piano-ff-060.wav');
+        var audioB2 = new Audio('sounds/piano-ff-061C.wav');
+
+        var audioC1 = new Audio('sounds/piano-ff-038.wav');
+        var audioBlackW1 = new Audio('sounds/piano-ff-039.wav');
+        var audioD1 = new Audio('sounds/piano-ff-040.wav');
+        var audioBlackE1 = new Audio('sounds/piano-ff-041.wav');
+        var audioE1 = new Audio('sounds/piano-ff-042.wav');
+        var audioF1 = new Audio('sounds/piano-ff-043.wav');
+        var audioBlackT1 = new Audio('sounds/piano-ff-044.wav');
+        var audioG1 = new Audio('sounds/piano-ff-045.wav');
+        var audioBlackY1 = new Audio('sounds/piano-ff-046.wav');
+        var audioA1 = new Audio('sounds/piano-ff-047.wav');
+        var audioBlackU1 = new Audio('sounds/piano-ff-048.wav');
+        var audioB1 = new Audio('sounds/piano-ff-049C.wav');
+
+
+        var audioC = new Audio('sounds/piano-ff-026.wav');
+        var audioBlackW = new Audio('sounds/piano-ff-027.wav');
+        var audioD = new Audio('sounds/piano-ff-028.wav');
+        var audioBlackE = new Audio('sounds/piano-ff-029.wav');
+        var audioE = new Audio('sounds/piano-ff-030.wav');
+        var audioF = new Audio('sounds/piano-ff-031.wav');
+        var audioBlackT = new Audio('sounds/piano-ff-032.wav');
+        var audioG = new Audio('sounds/piano-ff-033.wav');
+        var audioBlackY = new Audio('sounds/piano-ff-034.wav');
+        var audioA = new Audio('sounds/piano-ff-035.wav');
+        var audioBlackU = new Audio('sounds/piano-ff-036.wav');
+        var audioB = new Audio('sounds/piano-ff-037C.wav');
+
+        function playKey(event) {
+            console.log(event.keyCode);
+            switch (event.keyCode) {
+                case 74:
+                    if (audioB.paused) {
+                        audioB.play();
+                    } else {
+                        audioB.currentTime = 0;
+                    }
+                    B.style.backgroundColor = "gray";
+                    setTimeout(() => {
+                        B.style.backgroundColor = "";
+                    }, 150);
+                    break;
+
+                case 72:
+                    A.style.backgroundColor = "gray";
+                    if (audioA.paused) {
+                        audioA.play();
+                    } else {
+                        audioA.currentTime = 0;
+                    }
+                    setTimeout(() => {
+                        A.style.backgroundColor = "";
+                    }, 150);
+                    break;
+
+                case 71:
+                    G.style.backgroundColor = "gray";
+                    if (audioG.paused) {
+                        audioG.play();
+                    } else {
+                        audioG.currentTime = 0;
+                    }
+                    setTimeout(() => {
+                        G.style.backgroundColor = "";
+                    }, 150);
+                    break;
+
+                case 70:
+                    F.style.backgroundColor = "gray";
+                    if (audioF.paused) {
+                        audioF.play();
+                    } else {
+                        audioF.currentTime = 0;
+                    } setTimeout(() => {
+                        F.style.backgroundColor = "";
+                    }, 150);
+                    break;
+
+                case 68:
+                    E.style.backgroundColor = "gray";
+                    if (audioE.paused) {
+                        audioE.play();
+                    } else {
+                        audioE.currentTime = 0;
+                    } setTimeout(() => {
+                        E.style.backgroundColor = "";
+                    }, 150);
+                    break;
+
+                case 83:
+                    D.style.backgroundColor = "gray";
+                    if (audioD.paused) {
+                        audioD.play();
+                    } else {
+                        audioD.currentTime = 0;
+                    }
+                    setTimeout(() => {
+                        D.style.backgroundColor = "";
+                    }, 150);
+                    break;
+
+                case 65:
+                    C.style.backgroundColor = "gray";
+                    if (audioC.paused) {
+                        audioC.play();
+                    } else {
+                        audioC.currentTime = 0;
+                    } setTimeout(() => {
+                        C.style.backgroundColor = "";
+                    }, 150);
+                    break;
+                case 87:
+                    blackW.style.backgroundColor = "gray";
+                    if (audioBlackW.paused) {
+                        audioBlackW.play();
+                    } else {
+                        audioBlackW.currentTime = 0;
+                    } setTimeout(() => {
+                        blackW.style.backgroundColor = "";
+                    }, 150);
+                    break;
+                case 69:
+                    blackE.style.backgroundColor = "gray";
+                    if (audioBlackE.paused) {
+                        audioBlackE.play();
+                    } else {
+                        audioBlackE.currentTime = 0;
+                    } setTimeout(() => {
+                        blackE.style.backgroundColor = "";
+                    }, 150);
+                    break;
+                case 84:
+                    blackT.style.backgroundColor = "gray";
+                    if (audioBlackT.paused) {
+                        audioBlackT.play();
+                    } else {
+                        audioBlackT.currentTime = 0;
+                    } setTimeout(() => {
+                        blackT.style.backgroundColor = "";
+                    }, 150);
+                    break;
+                case 89:
+                    blackY.style.backgroundColor = "gray";
+                    if (audioBlackY.paused) {
+                        audioBlackY.play();
+                    } else {
+                        audioBlackY.currentTime = 0;
+                    } setTimeout(() => {
+                        blackY.style.backgroundColor = "";
+                    }, 150);
+                    break;
+                case 85:
+                    blackU.style.backgroundColor = "gray";
+                    if (audioBlackU.paused) {
+                        audioBlackU.play();
+                    } else {
+                        audioBlackU.currentTime = 0;
+                    } setTimeout(() => {
+                        blackU.style.backgroundColor = "";
+                    }, 150);
+                    break;
+            }
+        }
+
+        //
+
+        var pianoKeys = [C, blackW, D, blackE, E, F, blackT, G, blackY, A, blackU, B,
+            C1, blackW1, D1, blackE1, E1, F1, blackT1, G1, blackY1, A1, blackU1, B1,
+            C2, blackW2, D2, blackE2, E2, F2, blackT2, G2, blackY2, A2, blackU2, B2];
+
+        var audioFiles = [audioC, audioBlackW, audioD, audioBlackE, audioE, audioF, audioBlackT, audioG, audioBlackY, audioA, audioBlackU, audioB,
+            audioC1, audioBlackW1, audioD1, audioBlackE1, audioE1, audioF1, audioBlackT1, audioG1, audioBlackY1, audioA1, audioBlackU1, audioB1,
+            audioC2, audioBlackW2, audioD2, audioBlackE2, audioE2, audioF2, audioBlackT2, audioG2, audioBlackY2, audioA2, audioBlackU2, audioB2];
+
+        for (let i = 0; i < pianoKeys.length; i++) {
+
+            pianoKeys[i].addEventListener("click", function () {
+
+                if (audioFiles[i].paused) {
+                    audioFiles[i].play();
+                } else {
+                    audioFiles[i].currentTime = 0;
+                }
+
+                pianoKeys[i].style.backgroundColor = "gray";
+                setTimeout(() => {
+                    pianoKeys[i].style.backgroundColor = "";
+                }, 150);
+            });
+        }
+
+
+    </script>
+</body>
+
+</html>

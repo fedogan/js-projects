@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="sun"></div>
+    <div class="center">
+        <div id="cloud"></div>
+    </div>
+    <div class="background">
+        <div class="gray"></div>
+        <div class="light red" id="red"></div>
+        <div class="gray"></div>
+        <div class="light yellow" id="yellow"></div>
+        <div class="gray"></div>
+        <div class="light green" id="green"></div>
+        <div class="stick"></div>
+    </div>
+    <div class="grass"></div>
+    <script>
+        var redLight = document.getElementById("red");
+        var yellowLight = document.getElementById("yellow");
+        var greenLight = document.getElementById("green");
+
+        function letThereBeLight() {
+            greenLight.style.visibility = "hidden";
+            redLight.style.visibility = "visible";
+            setTimeout(() => {
+                redLight.style.visibility = "hidden";
+                yellowLight.style.visibility = "visible";
+            }, 2500)
+
+            setTimeout(() => {
+                yellowLight.style.visibility = "hidden";
+                greenLight.style.visibility = "visible";
+            }, 5000)
+
+            setTimeout(() => {
+                letThereBeLight();
+            }, 7500)
+
+        }
+
+        letThereBeLight();
+    </script>
+</body>
+
+</html>
